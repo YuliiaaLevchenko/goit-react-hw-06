@@ -6,7 +6,8 @@ const SearchBox = () => {
   const nameFilter = useSelector(selectNameFilter);
   const dispatch = useDispatch();
 
-  const handleFilterChange = (value) => {
+  const handleFilterChange = (e) => {
+    const { value } = e.target;
     dispatch(changeFilter(value));
   };
 
@@ -16,7 +17,7 @@ const SearchBox = () => {
         <input className={css.textInput}
         type="text"
         value={nameFilter}
-        onChange={(e) => handleFilterChange(e.target.value)}
+        onChange={handleFilterChange}
       />
       </div>
     )
